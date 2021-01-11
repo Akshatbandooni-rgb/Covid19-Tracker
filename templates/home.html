@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="m-2 p-2">
+    <nav class="mt-4 mb-4 ">
+        <div class=" nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-link active text-success" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true">Global Cases</a>
+            <a class="nav-link text-primary" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab"
+                aria-controls="nav-profile" aria-selected="false">Covid-19</a>
+
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="row">
+                <div class="card text-white bg-warning mb-3 col-md-3 m-4" style="max-width: 18rem;">
+
+                    <div class="card-body">
+                        <div class="mt-2"><img width="48" height="44"
+                                src="https://covidindia.org/wp-content/uploads/2020/07/1f.png"
+                                class="attachment-large size-large" alt="" loading="lazy"></div>
+                        <h5 class="card-title">New Confirmed</h5>
+
+                        <p class="card-text">{{globaldata.NewConfirmed}}</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-info mb-3 col-md-3 m-4" style="max-width: 18rem;">
+
+                    <div class="card-body">
+                        <div class="mt-2"> <img width="48" height="44"
+                                src="https://covidindia.org/wp-content/uploads/2020/07/1f.png"
+                                class="attachment-large size-large" alt="" loading="lazy"></div>
+                        <h5 class="card-title">Total Confirmed</h5>
+                        <p class="card-text">{{globaldata.TotalConfirmed}}</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3 col-md-3 m-4" style="max-width: 18rem;">
+                    <div class="mt-2"> <img width="44" height="44"
+                            src="https://covidindia.org/wp-content/uploads/2020/07/3f.png"
+                            class="attachment-large size-large" alt="" loading="lazy"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Deaths</h5>
+                        <p class="card-text">{{globaldata.TotalDeaths}}</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-success mb-3 col-md-3 m-4" style="max-width: 18rem;">
+                    <div class="mt-2"> <img width="48" height="44"
+                            src="https://covidindia.org/wp-content/uploads/2020/07/2f.png"
+                            class="attachment-large size-large" alt="" loading="lazy"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Recovered</h5>
+                        <p class="card-text">{{globaldata.TotalRecovered}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/static/images/Covid19.jpg" alt="..." height="400" width="500">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title display-4">Covid19</h5>
+                            <p class="card-text">Coronavirus disease (COVID-19) is an infectious disease caused
+                                by a newly discovered coronavirus.
+                                Most people who fall sick with COVID-19 will experience mild to moderate
+                                symptoms and recover without special treatment.</p><br>
+                            <p class="card-text"><strong>How it Spreads</strong><br>
+                                The virus that causes COVID-19 is mainly transmitted through droplets generated
+                                when an infected person coughs, sneezes, or exhales. These droplets are too
+                                heavy to hang in the air, and quickly fall on floors or surfaces.
+                                You can be infected by breathing in the virus if you are within close proximity
+                                of someone who has COVID-19, or by touching a contaminated surface and then your
+                                eyes, nose or mouth.</p>
+                            <span class="badge bg-danger"><a
+                                    href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
+                                    class="text-light">Learn more on who.int</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+    </title>
+</head>
+<style>
+    body {
+        font-family: 'Yusei Magic', sans-serif;
+    }
+</style>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">Covid-19 Tracker</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex" method="POST" action="{% url 'dataByCountry' %}">
+                        {% csrf_token %}
+                        <select id="countries" name="countries" class="form-control me-2" placeholder="Countries">
+                            <option selected>Countries</option>
+                            {% for country in countries %}
+
+                            <option>{{country.Slug}}</option>
+
+                            {% endfor %}
+
+                        </select>
+                        <button class="btn btn-warning btn-sm" type="submit">Get Data</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    {% block content %}
+
+    {% endblock content %}
+    <footer class="bg-dark">
+
+        <div class="bg-primary">
+            <div class="container">
+
+                <!-- Grid row-->
+                <div class="row py-4 d-flex align-items-center">
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-5 text-center text-light text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Get connected with us on social networks!</h6>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right text-light">
+
+                        <!-- Github -->
+                        <a href="https://github.com/Akshatbandooni-rgb" class="rounded">
+                            <i class="fa fa-github  text-white" style="font-size:24px; margin-left:20px"></i>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/what_d_duck/" class="rounded ml-4">
+                            <i class="fa fa-instagram text-white" style="font-size:24px; margin-left:20px"></i>
+                        </a>
+                        <!-- Linkedin-->
+                        <a href="https://www.linkedin.com/in/akshat-bandooni-846596174/" class="rounded ml-4">
+                            <i class="fa fa-linkedin text-white" style="font-size:24px ;margin-left:20px"></i>
+                        </a>
+                        <!--Facebook -->
+                        <a href="https://www.facebook.com/akshat.bandooni.5/" class="rounded ml-4">
+                            <i class="fa fa-facebook text-white" style="font-size:24px ;margin-left:20px"></i>
+                        </a>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class=" container-fluid">
+            <div class="container  bg-dark text-center text-md-left pt-4 pt-md-5">
+
+                <!-- Grid row -->
+                <div class="row mt-1 mt-md-0 mb-4 mb-md-0">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto mt-3 mt-md-0 mb-0 mb-md-4 text-light">
+
+                        <!-- Links -->
+                        <h5>About me</h5>
+                        <hr class="color-primary mb-4 mt-0 d-inline-block mx-auto w-60">
+
+                        <p class="foot-desc mb-0 text-light">Here you can use rows and columns to organize your
+                            footer content.
+                            Lorem
+                            ipsum dolor sit amet,
+                            consectetur
+                            adipisicing elit.</p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto mt-3 mt-md-0 mb-0 mb-md-4 text-light">
+
+                        <!-- Links -->
+                        <h5>Products</h5>
+                        <hr class=" mb-4 mt-0 d-inline-block mx-auto w-60 ">
+
+                        <ul class="list-unstyled foot-desc">
+                            <li class="mb-2 text-light">
+                                <a href="#!" class=" text-light">Link1</a>
+                            </li>
+                            <li class="mb-2 text-light">
+                                <a href="#!" class=" text-light">Link2</a>
+                            </li>
+                            <li class="mb-2 text-light">
+                                <a href="#!" class=" text-light">Link3</a>
+                            </li>
+                            <li class="mb-2 text-light">
+                                <a href="#!" class=" text-light">Link4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto mt-3 mt-md-0 mb-0 mb-md-4 text-light">
+
+                        <!-- Links -->
+                        <h5>Useful links</h5>
+                        <hr class="color-primary mb-4 mt-0 d-inline-block mx-auto w-60">
+
+                        <ul class="list-unstyled foot-desc">
+                            <li class="mb-2">
+                                <a href="#!" class=" text-light">Link1</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class=" text-light">Link2</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class=" text-light">Link3</a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#!" class=" text-light">Link4</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto mt-3 mt-md-0 mb-0 mb-md-4 text-light">
+
+                        <!-- Links -->
+                        <h5>Contacts</h5>
+                        <hr class="color-primary mb-4 mt-0 d-inline-block mx-auto w-60">
+
+                        <ul class="fa-ul foot-desc ml-4">
+                            <li class="mb-2 text-light"><span class="fa-li"><i class="far fa-map"></i></span>Address
+                                Line1
+                            </li>
+                            <li class="mb-2 text-light"><span class="fa-li"><i
+                                        class="fas fa-phone-alt"></i></span>PhoneNo.
+                            </li>
+                            <li class="mb-2 text-light"><span class="fa-li"><i class="far fa-envelope"></i></span>Email
+                            </li>
+                            <li class="text-light"><span class="fa-li"><i class=""></i></span>Another Detail</li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3 text-light">© 2020 Copyright
+            </div>
+            <!-- Copyright -->
+        </div>
+    </footer>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>
